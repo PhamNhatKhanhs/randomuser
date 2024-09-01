@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        nav .icon {
+            margin-right: 5px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .user {
+            margin: 20px 0;
+        }
+
+        img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .icons {
+            margin-top: 20px;
+        }
+
+        .icon {
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .api-info {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .api-info h2 {
+            text-align: center;
+        }
+
+        .code-snippet {
+            background: #f8f9fa;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .thank-you {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .results {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#"><span class="icon">🏠</span>Home</a>
+        <a href="#"><span class="icon">👤</span>User Photos</a>
+        <a href="#"><span class="icon">📖</span>Documentation</a>
+        <a href="#"><span class="icon">✏️</span>Change Log</a>
+        <a href="#"><span class="icon">📊</span>Stats & Graphs</a>
+        <a href="#"><span class="icon">❤️</span>Donate</a>
+        <a href="#"><span class="icon">©</span>Copyright Notice</a>
+        <a href="#"><span class="icon">🖼️</span>Photoshop Extension</a>
+    </nav>
+    <header>
+        <h1>RANDOM USER GENERATOR</h1>
+        <p>A free, open-source API for generating random user data.</p>
+    </header>
+    
+    <div class="container">
+        <div id="user" class="user"></div>
+        <button id="generate">Tạo người dùng mới</button>
+        <div class="icons">
+            <span class="icon">📧</span>
+            <span class="icon">📅</span>
+            <span class="icon">📍</span>
+            <span class="icon">📞</span>
+        </div>
+    </div>
+
+    <div class="api-info">
+        <h2>Hướng dẫn sử dụng API</h2>
+        <p>Bạn có thể sử dụng AJAX để gọi API Random User Generator và nhận dữ liệu người dùng ngẫu nhiên.</p>
+        <div class="code-snippet">
+            <pre>
+$.ajax({
+    url: 'https://randomuser.me/api/',
+    dataType: 'json',
+    success: function(data) {
+        console.log(data);
+    }
+});
+            </pre>
+        </div>
+        <h3>Kết quả</h3>
+        <p>Ứng dụng sẽ cung cấp cho bạn một đối tượng JSON mà bạn có thể phân tích và áp dụng cho ứng dụng của mình.</p>
+    </div>
+
+    <div class="results">
+        <h2>Kết quả</h2>
+        <p>Ứng dụng sẽ cung cấp cho bạn một đối tượng JSON như sau:</p>
+        <div class="code-snippet">
+            <pre>{
+    "results": [
+        {
+            "gender": "female",
+            "name": {
+                "title": "Miss",
+                "first": "Jennie",
+                "last": "Nichols"
+            },
+            "location": {
+                "street": {
+                    "number": 8929,
+                    "name": "Valwood Pkwy"
+                },
+                "city": "Billings",
+                "state": "Michigan",
+                "country": "United States",
+                "postcode": "63104",
+                "coordinates": {
+                    "latitude": "-69.8246",
+                    "longitude": "134.8719"
+                },
+                "timezone": {
+                    "offset": "+9:30",
+                    "description": "Adelaide, Darwin"
+                }
+            },
+            "email": "jennie.nichols@example.com",
+            "login": {
+                "uuid": "7a0eed16-9430-4d68-901f-c0d4c1c3bf00",
+                "username": "yellowpeacock117",
+                "password": "addison",
+                "salt": "sld1yGtd",
+                "md5": "ab54ac4c0be9480ae8fa5e9e2a5196a3",
+                "sha1": "edcf2ce613cbdea349133c52dc2f3b83168dc51b",
+                "sha256": "48df5229235ada28389b91e60a935e4f9b73eb4bdb855ef9258a1751f10bdc5d"
+            },
+            "dob": {
+                "date": "1992-03-08T15:13:16.688Z",
+                "age": 30
+            },
+            "registered": {
+                "date": "2007-07-09T05:51:59.390Z",
+                "age": 14
+            },
+            "phone": "(272) 790-0888",
+            "cell": "(489) 330-2385",
+            "id": {
+                "name": "SSN",
+                "value": "405-88-3636"
+            },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/men/75.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/men/75.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/men/75.jpg"
+            },
+            "nat": "US"
+        }
+    ],
+    "info": {
+        "seed": "56d27f4a53bd5441",
+        "results": 1,
+        "page": 1,
+        "version": "1.4"
+    }
+}</pre>
+        </div>
+    </div>
+
+    <div class="thank-you">
+        <h2>Cảm ơn bạn đã giúp chúng tôi</h2>
+        <p>Phát hiện lỗi hoặc có ý tưởng nào không?</p>
+        <p>Đóng góp vào cơ sở dữ liệu của randomuser.me trên <a href="https://github.com/randomuser"
+                style="color: green;">Github Repo</a>.</p>
+        <h3>Liên hệ với chúng tôi</h3>
+        <p>Nếu bạn có bất kỳ câu hỏi/phản hồi nào hoặc muốn liên hệ với chúng tôi, hãy tweet cho chúng tôi @randomapi
+        </p>
+    </div>
+
+    <footer>
+        <div class="team-photos">
+            <h2>Nhóm phát triển</h2>
+            <img src="11.jpg" alt="Designed by" style="width: 100px; height: 100px; border-radius: 50%;">
+            
+            <img src="22.jpg" alt="Developed by" style="width: 100px; height: 100px; border-radius: 50%;">
+            
+        </div>
+        <div class="footer-content">
+            <h2>Copyright Notice</h2>
+            <p>All randomly generated photos were hand picked from the authorized section of <a
+                    href="https://ui-avatars.com/" style="color: #fff; text-decoration: underline;">UI Faces</a>. Please
+                visit <a href="https://ui-avatars.com/" style="color: #fff; text-decoration: underline;">UI Faces
+                    FAQ</a> for more information regarding how you can use these faces.</p>
+        </div>
+    </footer>
+
+    <script>
+        async function fetchUser() {
+            const response = await fetch('https://randomuser.me/api/');
+            const data = await response.json();
+            const user = data.results[0];
+            document.getElementById('user').innerHTML = `
+                <h2>Hi, My name is ${user.name.first} ${user.name.last}</h2>
+                <img src="${user.picture.large}" alt="User Picture">
+                <p>Email: ${user.email}</p>
+                <p>Địa chỉ: ${user.location.city}, ${user.location.country}</p>
+            `;
+        }
+
+        document.getElementById('generate').addEventListener('click', fetchUser);
+        
+        fetchUser();
+    </script>
+</body>
+
+
+</html>
